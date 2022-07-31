@@ -17,7 +17,9 @@ Database:- MYSQL for Storing Transaction history
 # Easy to Installed using executable file(.exe)
 
 ![Screenshot 2022-07-30 170902](https://user-images.githubusercontent.com/84500245/182027633-1c16938c-4697-4a5c-a562-b8a0e13c4a01.jpg)
-#Easy to open and use
+
+# Easy to open applicatin and use 
+# Loading Page
 ![Screenshot 2022-07-30 170235](https://user-images.githubusercontent.com/84500245/182027683-206a942b-4806-44c4-acae-9680d33a4c6f.jpg)
 
 # Login page
