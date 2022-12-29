@@ -8,27 +8,17 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author Sudhir Kushwaha
  */
 public class PassWord extends javax.swing.JFrame {
-
-    /**
-     * Creates new form PassWord
-     */
     public PassWord() {
         initComponents();
         txtsq.setEditable(false);
     }
 PreparedStatement pst;
-    Statement st=null;
+    Statement st = null;
     ResultSet rs;
     
     /**
@@ -222,21 +212,22 @@ PreparedStatement pst;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","Sudhir@123");
-            //st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-            pst=con.prepareStatement("select sq from signup where email=?");
+            
+            pst = con.prepareStatement("select sq from signup where email=?");
             pst.setString(1, txtemail.getText());
-            rs=pst.executeQuery();
-            if(rs.next()){
+            rs = pst.executeQuery();
+            
+            if (rs.next()){
                 txtsq.setText(rs.getString("sq"));
-                }
+            }
             else
-                JOptionPane.showMessageDialog(this,"Email id not exist");
+                JOptionPane.showMessageDialog(this,"Email ID does not exist");
+            
             txtans.setText("");
             txtpassword.setText("");
         } catch (ClassNotFoundException | SQLException ex) {
            // Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -257,23 +248,23 @@ PreparedStatement pst;
         Class.forName("com.mysql.cj.jdbc.Driver");
         java.sql.Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","Sudhir@123");
         //st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        pst=conn.prepareStatement("select * from signup where answer=? and email=?");
+        pst = conn.prepareStatement("select * from signup where answer=? and email=?");
         pst.setString(1, txtans.getText());
         pst.setString(2, txtemail.getText());
         rs=pst.executeQuery();
-        if(rs.next()){
+        if (rs.next()){
             try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","Sudhir@123");
-            pst=con.prepareStatement("update signup set password=? where email=?");
-            pst.setString(1, txtpassword.getText());
-            pst.setString(2, txtemail.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Password Reset\nLogin Now","Success",JOptionPane.INFORMATION_MESSAGE);
-            new SignIn().setVisible(true); 
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(PassWord.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","Sudhir@123");
+                pst = con.prepareStatement("update signup set password=? where email=?");
+                pst.setString(1, txtpassword.getText());
+                pst.setString(2, txtemail.getText());
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Password Reset\nLogin Now","Success",JOptionPane.INFORMATION_MESSAGE);
+                new SignIn().setVisible(true); 
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(PassWord.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             JOptionPane.showMessageDialog(this, "Wrong Answer Entery","Wrong",JOptionPane.WARNING_MESSAGE);
@@ -281,7 +272,7 @@ PreparedStatement pst;
             txtans.setText("");
         }
     }catch(Exception e){
-        
+            System.out.println("An Error occured.");
     }
         
     }

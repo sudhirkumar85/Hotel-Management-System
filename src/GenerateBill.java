@@ -7,18 +7,13 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author Sudhir Kushwaha
  */
 public class GenerateBill extends javax.swing.JFrame {
     
-    String id=CustomerDetailsBill.idd;
+    String id =CustomerDetailsBill.idd;
     String nm;
     String mobile;
     String email;
@@ -38,22 +33,22 @@ public class GenerateBill extends javax.swing.JFrame {
         initComponents();
         connect();
         txtbill.setText("\t\t-: Kushwaha Hotel :-\n");
-        txtbill.setText(txtbill.getText()+"**********************************************************************************\n");
-        txtbill.setText(txtbill.getText()+"Bill ID:- "+id+"\n");
-        txtbill.setText(txtbill.getText()+"Customer Details:- \n");
-        txtbill.setText(txtbill.getText()+"Name:- "+nm+"\n");
-        txtbill.setText(txtbill.getText()+"Mobile Number:- "+mobile+"\n");
-        txtbill.setText(txtbill.getText()+"Email:- "+email+"\n");
-        txtbill.setText(txtbill.getText()+"**********************************************************************************\n");
-        txtbill.setText(txtbill.getText()+"Room Details:- \n");
-        txtbill.setText(txtbill.getText()+"Room Number:- "+roomnumber+"\n");
-        txtbill.setText(txtbill.getText()+"Type:- "+type+"\n");
-        txtbill.setText(txtbill.getText()+"Bed:- "+bed+"\n");
-        txtbill.setText(txtbill.getText()+"Price:- "+price+"\n");
-        txtbill.setText(txtbill.getText()+"Check IN Date="+indate+"\t\tNumber of Days="+days+"\n");
-        txtbill.setText(txtbill.getText()+"Check OUT Date="+outdate+"\t\tTotal Amount="+amount+"\n");
-        txtbill.setText(txtbill.getText()+"**********************************************************************************\n");
-        txtbill.setText(txtbill.getText()+"\t\t"+"                    Thank You,Please Visit Again.");
+        txtbill.setText(txtbill.getText() + "**********************************************************************************\n");
+        txtbill.setText(txtbill.getText() + "Bill ID:- " + id + "\n");
+        txtbill.setText(txtbill.getText() + "Customer Details:- \n");
+        txtbill.setText(txtbill.getText() + "Name:- "+nm+"\n");
+        txtbill.setText(txtbill.getText() + "Mobile Number:- " + mobile + "\n");
+        txtbill.setText(txtbill.getText() + "Email:- " + email + "\n");
+        txtbill.setText(txtbill.getText() + "**********************************************************************************\n");
+        txtbill.setText(txtbill.getText() + "Room Details:- \n");
+        txtbill.setText(txtbill.getText() + "Room Number:- " + roomnumber + "\n");
+        txtbill.setText(txtbill.getText() + "Type:- " + type + "\n");
+        txtbill.setText(txtbill.getText() + "Bed:- " + bed + "\n");
+        txtbill.setText(txtbill.getText() + "Price:- " + price + "\n");
+        txtbill.setText(txtbill.getText() + "Check IN Date=" + indate + "\t\tNumber of Days=" + days +"\n");
+        txtbill.setText(txtbill.getText() + "Check OUT Date=" + outdate + "\t\tTotal Amount=" + amount + "\n");
+        txtbill.setText(txtbill.getText() + "**********************************************************************************\n");
+        txtbill.setText(txtbill.getText() + "\t\t" + "                    Thank You,Please Visit Again.");
         }
     public void connect(){
         PreparedStatement pst;

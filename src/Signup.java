@@ -220,62 +220,60 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    if(txtname.getText().equals("")){
-        JOptionPane.showMessageDialog(this,"All Field is required");
+        // If any of the fields are left empty, give a warning notification.
+        if (txtname.getText().equals("")){
+        JOptionPane.showMessageDialog(this,"All Field are required to be filled.");
         txtname.requestFocus();
         }  
-    else if(txtemail.getText().equals("")){
-         JOptionPane.showMessageDialog(this,"All Field is required");
-         txtemail.requestFocus();
-    }
-    else if(txtpassword.getText().equals("")){
-        JOptionPane.showMessageDialog(this,"All Field is required");
-        txtpassword.requestFocus();
+        
+        else if(txtemail.getText().equals("")){
+             JOptionPane.showMessageDialog(this,"All Field are required to be filled.");
+             txtemail.requestFocus();
         }
-    else if(txtans.getText().equals("")){
-        JOptionPane.showMessageDialog(this,"All Field is required");
-        txtans.requestFocus();
-        }
-    else{    
-    PreparedStatement pst=null;
-    Statement st=null;
-    ResultSet rs=null;
-    java.sql.Connection con=null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","Sudhir@123");
-           // st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-            pst=con.prepareStatement("select * from signup where email=?");
-            pst.setString(1, txtemail.getText());
-            rs=pst.executeQuery();
-            if(rs.next()){
-                JOptionPane.showMessageDialog(this,"Use Another Email ID");
-                txtemail.requestFocus();
+        
+        else if(txtpassword.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"All Field are required to be filled.");
+            txtpassword.requestFocus();
             }
-            else{
-           //      try {
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            //con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","Sudhir@123");
-            pst=con.prepareStatement("insert into signup(name,email,password,sq,answer)values(?,?,?,?,?)");
-            pst.setString(1, txtname.getText());
-            pst.setString(2, txtemail.getText().toLowerCase());
-            pst.setString(3, txtpassword.getText());
-            pst.setString(4, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
-            pst.setString(5, txtans.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Registered Successfully\nLogin Now");
-           new SignIn().setVisible(true);  
-       // } catch (SQLException ex) {
-            //Logger.getLogger(Record.class.getName()).log(Level.SEVERE, null, ex);
-       // }
-                
-                
+        
+        else if(txtans.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"All Field are required to be filled.");
+            txtans.requestFocus();
             }
-            
-        } catch (ClassNotFoundException | SQLException ex) {
-           //Logger.getLogger(Record.class.getName()).log(Level.SEVERE, null, ex);
+        else {    
+            PreparedStatement pst = null;
+            Statement st = null;
+            ResultSet rs = null;
+            java.sql.Connection con = null;
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","Sudhir@123");
+
+                    pst = con.prepareStatement("select * from signup where email=?");
+                    pst.setString(1, txtemail.getText());
+                    rs = pst.executeQuery();
+                    if (rs.next()){
+                        JOptionPane.showMessageDialog(this,"Use Another Email ID");
+                        txtemail.requestFocus();
+                    }
+                    else {
+                                       pst=con.prepareStatement("insert into signup(name,email,password,sq,answer)values(?,?,?,?,?)");
+                    pst.setString(1, txtname.getText());
+                    pst.setString(2, txtemail.getText().toLowerCase());
+                    pst.setString(3, txtpassword.getText());
+                    pst.setString(4, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
+                    pst.setString(5, txtans.getText());
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Registered Successfully\nLogin Now");
+                   new SignIn().setVisible(true);  
+
+
+                    }
+
+                } catch (ClassNotFoundException | SQLException ex) {
+                   //Logger.getLogger(Record.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
-    }
         
         
         
@@ -290,10 +288,8 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- new SignIn().setVisible(true);
-
-//dispose();                    
-    // TODO add your handling code here:
+        this.setVisible(false);
+        new SignIn().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtansKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtansKeyPressed

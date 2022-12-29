@@ -369,23 +369,22 @@ public class CustomerCheckIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  
-dispose();        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-txtname.setText("");
-txtmob.setText("");
-txtnat.setText("");
-txtemail.setText("");
-txtadhar.setText("");
-txtaddres.setText("");
-combogender.setSelectedIndex(0);
-combobed.setSelectedIndex(0);
-comboroomtype.setSelectedIndex(0);
-if(comboroomnumber.getItemCount()==0)
-    txtprice.setText("");
-        // TODO add your handling code here:
+        // Set all fields to empty string.
+        txtname.setText("");
+        txtmob.setText("");
+        txtnat.setText("");
+        txtemail.setText("");
+        txtadhar.setText("");
+        txtaddres.setText("");
+        combogender.setSelectedIndex(0);
+        combobed.setSelectedIndex(0);
+        comboroomtype.setSelectedIndex(0);
+        if (comboroomnumber.getItemCount()==0)
+            txtprice.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdateActionPerformed
@@ -409,7 +408,8 @@ if(comboroomnumber.getItemCount()==0)
     }//GEN-LAST:event_comboroomnumberItemStateChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    if(txtname.getText().equals("")){
+        // Give warning notification if any field is left empty.
+        if(txtname.getText().equals("")){
       JOptionPane.showMessageDialog(this, "All Field is Requied");
       txtname.requestFocus();
     }
