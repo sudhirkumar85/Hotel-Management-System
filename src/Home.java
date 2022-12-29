@@ -1,20 +1,10 @@
-
 import javax.swing.JOptionPane;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
 /**
  *
  * @author Sudhir Kushwaha
  */
 public class Home extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Home
-     */
     public Home() {
         initComponents();
     }
@@ -109,14 +99,16 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       int yes=JOptionPane.showConfirmDialog(this, "Are you really Logout ?", "Logut",JOptionPane.YES_NO_OPTION);
+        // Confirming logout.
+       int yes=JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logut",JOptionPane.YES_NO_OPTION);
        if(JOptionPane.YES_OPTION==yes){
             new SignIn().setVisible(true);          
        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-int yes=JOptionPane.showConfirmDialog(this, "Are You Really Close This Application ?","Exit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        // Confirmation for closing the program.
+int yes=JOptionPane.showConfirmDialog(this, "Are you sure you want to close the Application?","Exit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if(yes==JOptionPane.YES_OPTION){
             System.exit(0);
         }       
