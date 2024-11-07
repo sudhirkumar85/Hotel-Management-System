@@ -67,3 +67,7 @@ Database:- MYSQL for Storing Transaction history
 
 # Logout
 ![Screenshot 2022-07-31 182713](https://user-images.githubusercontent.com/84500245/182027928-d1b32712-853d-45e9-ab94-82640fc56736.jpg)
+
+
+
+![Screenshot_20241107-123605_1](https://github.com/user-attachments/assets/e77b7eed-8432-4918-90be-2b74abc730c0)
